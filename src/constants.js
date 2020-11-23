@@ -1,1 +1,0 @@
-export const PUBLIC_URL = 'http://www.hosseintorabi.com:50080';
