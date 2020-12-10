@@ -3,22 +3,27 @@ import React, { Component } from 'react';
 class Resume extends Component {
   render() {
 
-    if(this.props.data){
-      var skillmessage = this.props.data.skillmessage;
-      var education = this.props.data.education.map(function(education){
+    if(this.props.educations){
+      var educationsList = this.props.educations.map(education => {
         return <div key={education.school}><h3>{education.school}</h3>
         <p className="info">{education.degree}</p>
         <p>{education.description}</p></div>
       })
-      var work = this.props.data.work.map(function(work){
+    }
+
+    if(this.props.works){
+      var worksList = this.props.works.map(work =>{
         return <div key={work.years}><h3>{work.company}</h3>
             <p className="info">{work.title}<span>&bull;</span> <em className="date">{work.years}</em></p>
             <p>{work.description}{work.link && <span> Click <a href={work.link} target='_blank'>here</a> for more details.</span>}</p>
         </div>
       })
-      var skills = this.props.data.skills.map(function(skills){
-        var className = 'bar-expand '+skills.name.toLowerCase();
-        return <li key={skills.name}><span style={{width:skills.level}}className={className}></span><em>{skills.name}</em></li>
+    }
+
+    if(this.props.skills){
+      var skillsList = this.props.skills.map(skill => {
+        var className = 'bar-expand '+skill.name.toLowerCase();
+        return <li key={skill.name}><span style={{width:skill.level}}className={className}></span><em>{skill.name}</em></li>
       })
     }
 
@@ -33,7 +38,7 @@ class Resume extends Component {
          <div className="nine columns main-col">
             <div className="row item">
                <div className="twelve columns">
-                 {education}
+                 {educationsList}
                </div>
             </div>
          </div>
@@ -47,7 +52,7 @@ class Resume extends Component {
          </div>
 
          <div className="nine columns main-col">
-          {work}
+          {worksList}
         </div>
     </div>
 
@@ -60,15 +65,12 @@ class Resume extends Component {
          </div>
 
          <div className="nine columns main-col">
-
-            <p>{skillmessage}
-            </p>
-
-				<div className="bars">
-				   <ul className="skills">
-					  {skills}
-					</ul>
-				</div>
+          <p>In addition to several programming languages such as Java, C++ and python, I have skills and experience in the following areas:</p>
+          <div className="bars">
+            <ul className="skills">
+              {skillsList}
+            </ul>
+          </div>
 			</div>
       </div>
    </section>

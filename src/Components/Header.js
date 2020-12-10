@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 
 class Header extends Component {
   render() {
-
     if(this.props.data){
-      var name = this.props.data.name;
-      var occupation= this.props.data.occupation;
-      var description= this.props.data.description;
-      var city= this.props.data.address.city;
-      var networks= this.props.data.social.map(function(network){
+      var bio = this.props.data[0];
+      var name = bio.name;
+      var occupation= bio.occupation;
+      var description= bio.description;
+      var city= bio.address.city;
+      var networks= bio.social.map(network => {
         return <li key={network.name}><a href={network.url} target='_blank'><i className={network.className}></i></a></li>
       })
     }

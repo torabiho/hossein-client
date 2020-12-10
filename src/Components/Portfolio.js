@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Portfolio extends Component {
   render() {
     if (this.props.data) {
-      const projects = this.props.data.projects;
+      const projects = this.props.data;
 
       var thumbnails = projects.map((project) => {
         var projectImage = 'images/portfolio/thumbnails/' + project.image;

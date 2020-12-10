@@ -4,14 +4,15 @@ class About extends Component {
   render() {
 
     if(this.props.data){
-      var name = this.props.data.name;
-      var profilepic= "images/"+this.props.data.image;
-      var bio1 = this.props.data.bio1;
-      var bio2 = this.props.data.bio2;
-      var city = this.props.data.address.city;
-      var country = this.props.data.address.country;
-      var email = this.props.data.email;
-      var resumeDownload = this.props.data.resumedownload;
+       var bio = this.props.data[0];
+      var name = bio.name;
+      var profilepic= "images/"+bio.image;
+      var bio1 = bio.bio1;
+      var bio2 = bio.bio2;
+      var city = bio.address.city;
+      var country = bio.address.country;
+      var email = bio.email;
+      var resumeDownload = bio.resumedownload;
     }
 
     return (
